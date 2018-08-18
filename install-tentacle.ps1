@@ -14,7 +14,7 @@ $tentacleInstance = "Tentacle"
 $role1 = "--role=web-server"
 $role2 = "--role=frontend-server"
 $tentacleEnvironment = "--environment=Test"
-$tentacleName = "Test Tentacle 1,2,3"
+$tentacleName = "{TENTACLE_NAME}"
 
 # Keep original working path
 $originalWorkingPath = (Get-Item -Path ".\" -Verbose).FullName
