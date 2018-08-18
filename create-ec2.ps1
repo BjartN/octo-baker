@@ -17,6 +17,8 @@ write-host "`tRegion: $($region)"
 
 Write-Host "Reading and encoding user data file from $($userDataFile)"
 $userDataRaw = Get-Content -Raw $userDataFile
+$userDataRaw = $userDataRaw -replace "{OCTOPUS_API_KEY}", $octopusApiKey
+$userDataRaw = $userDataRaw -replace "{OCTOPUS_SERVER_URL}", $octopusServerUrl
 $userData = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($userDataRaw))
 
 Write-Host "Setting AWS Credentials"
