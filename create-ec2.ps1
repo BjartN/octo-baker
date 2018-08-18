@@ -4,6 +4,7 @@
 #   3) Install-Module -Name AwsPowerShell
 #   4) You can find your AWS credentials under the IAM User in the AWS Console
  
+#. ./set-variables.ps1
 . ./set-variables.ps1
 
 write-host "Variables are"

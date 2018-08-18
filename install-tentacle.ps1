@@ -5,8 +5,8 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/in
 choco install octopusdeploy.tentacle -y
 
 # Define variables
-$octopusApiKey = "YOUR API KEY" 
-$octopusServerUrl = "https://YOUR-SERVER-URL.octopus.app" 
+$octopusApiKey = "{OCTOPUS_API_KEY}" 
+$octopusServerUrl = "{OCTOPUS_SERVER_URL}" 
 $tentacleHomeDirectory = "c:\Octopus"
 $tentacleAppDirectory = "c:\Octopus\Applications"
 $tentacleConfigPath = "C:\Octopus\Tentacle.config"
