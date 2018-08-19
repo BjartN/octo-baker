@@ -1,58 +1,42 @@
 <powershell>
 
+# Supress nasty progress bar
+$progressPreference = 'silentlyContinue' 
 
 # Enable Windows Features
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerRole
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServer
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-CommonHttpFeatures
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpErrors
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpRedirect
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationDevelopment
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-NetFxExtensibility
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-NetFxExtensibility45
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HealthAndDiagnostics
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpLogging
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-LoggingLibraries
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-RequestMonitor
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpTracing
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-Security
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-URLAuthorization
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-RequestFiltering
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-IPSecurity
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-Performance
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionDynamic
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebServerManagementTools
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementScriptingTools
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-IIS6ManagementCompatibility
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-Metabase
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HostableWebCore
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-CertProvider
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WindowsAuthentication
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-DigestAuthentication
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ClientCertificateMappingAuthentication
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-IISCertificateMappingAuthentication
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ODBCLogging
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-StaticContent
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-DefaultDocument
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-DirectoryBrowsing
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebDAV
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WebSockets
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ApplicationInit
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASPNET45
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ASP
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-CGI
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ISAPIExtensions
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ISAPIFilter
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ServerSideIncludes
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-CustomLogging
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-BasicAuthentication
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-HttpCompressionStatic
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementConsole
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-ManagementService
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-WMICompatibility
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-LegacyScripts
-Enable-WindowsOptionalFeature -Online -FeatureName IIS-LegacySnapIn
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-WebServerRole -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-WebServer -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-CommonHttpFeatures -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-HttpErrors -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-HttpRedirect -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-ApplicationDevelopment -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-NetFxExtensibility45 -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-HealthAndDiagnostics -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-HttpLogging -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-LoggingLibraries -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-RequestMonitor -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-HttpTracing -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-Security -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-RequestFiltering -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-Performance -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-HttpCompressionDynamic -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-WebServerManagementTools -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-ManagementScriptingTools -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-IIS6ManagementCompatibility -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-Metabase -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-WindowsAuthentication -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-StaticContent -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-DefaultDocument -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-DirectoryBrowsing -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-WebDAV -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-WebSockets -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-ApplicationInit -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-ASPNET45 -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-ISAPIExtensions -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-ISAPIFilter -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-CustomLogging -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-HttpCompressionStatic -All
+Enable-WindowsOptionalFeature -LogLevel 2 -Online -FeatureName IIS-ManagementConsole -All
 
 # Install Chocolatey
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
@@ -60,6 +44,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 choco install dotnetcore-windowshosting -y
 choco install dotnetcore-sdk --version 2.1.200 -y
 choco install octopusdeploy.tentacle -y
+choco install iis-arr -y
 
 # Define variables
 $octopusApiKey = "{OCTOPUS_API_KEY}" 
