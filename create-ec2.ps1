@@ -4,6 +4,7 @@ Import-Module ./ci-tools
 $isOctopus = $isOctopus -eq "true"
 $awsProfile = "MyProfile"
 $userDataFile = "$(Get-Location)\user-data.ps1"
+$keyName = $ec2InstanceName
 
 Write-Host "Variables are"
 Write-Host "`tInstance Name: $($ec2InstanceName)"
@@ -26,7 +27,6 @@ if ($isOctopus) {
     Set-KeyPairOctopus $awsRegion $awsProfile $keyName
 }
 else {
-    $keyName = $ec2InstanceName
     $keyFolder = "c:\keys\"
     $fullKeyPath = "$($keyFolder)$($keyName).pem"
     Set-KeyPairFileSystem $awsRegion $awsProfile $keyName $fullKeyPath
