@@ -4,7 +4,7 @@
 $ec2InstanceName = "name-of-new-instance"
 $awsAccessKey = "your-aws-access-key";
 $awsSecretKey = "your-aws-secret-key"
-$awsAmi = 'ami-4fb05b28' 
+$awsAmi = 'ami-9bb358fc' 
 $awsRegion = 'eu-west-2' 
 $awsExistingSecurityGroup = 'some-existing-security-group'
 $octopusApiKey = "API-******************" 
