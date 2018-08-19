@@ -75,4 +75,28 @@ Function New-Ec2InstanceWithNameTag(
 
     return $instance.RunningInstance.instanceid
 }
-
+Function Write-InstanceStatus($instance) {
+    switch ($instance.state.code) {
+        0 {
+            Write-Host "Status is pending"
+        }
+        16 {
+            Write-Host "Status is running"
+        }
+        32 {
+            Write-Host "Status is shutting-down"
+        }
+        48 {
+            Write-Host "Status is terminated"
+        }
+        64 {
+            Write-Host "Status is stopping"
+        }
+        80 {
+            Write-Host "Status is stopped"
+        }
+        default {
+            Write-Error "No valid states detected for any of the instances associated with the specified name tag."
+        }
+    }
+}

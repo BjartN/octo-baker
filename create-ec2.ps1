@@ -53,7 +53,7 @@ $instanceId = New-Ec2InstanceWithNameTag `
     $ec2InstanceName
 
 if ($isOctopus) {
-    #Pass on the variable instanceId to next step in the deployment process
+    Write-Host "Setting output variable Ec2InstanceId=$($instanceId)"
     Set-OctopusVariable -name "Ec2InstanceId" -value $instanceId
 }
 
