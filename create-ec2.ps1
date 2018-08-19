@@ -1,4 +1,4 @@
-Import-Module ./CiTools
+Import-Module ./ci-tools
 
 #Before starting 
 #   1) Start powershell as Adminstrator

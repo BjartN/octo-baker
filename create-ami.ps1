@@ -1,4 +1,4 @@
-Import-Module ./CiTools
+Import-Module ./ci-tools
 
 # Read variables from file if it exstings, otherwise we assume the variables 
 # are available in the environment
