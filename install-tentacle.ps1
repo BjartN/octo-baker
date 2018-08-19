@@ -72,6 +72,7 @@ $role1 = "--role=web-server"
 $role2 = "--role=frontend-server"
 $tentacleEnvironment = "--environment=Test"
 $tentacleName = "{TENTACLE_NAME}"
+$tenacleTenant = "{OCTOPUS_TENANT}"
 
 # Keep original working path
 $originalWorkingPath = (Get-Item -Path ".\" -Verbose).FullName
@@ -99,6 +100,7 @@ Set-Location "${env:ProgramFiles}\Octopus Deploy\Tentacle"
     --apiKey $octopusApiKey `
     --comms-style "TentacleActive" `
     --server-comms-port "10943" `
+    --tenant $tenacleTenant `
     --force `
     $tentacleEnvironment `
     $role1 `

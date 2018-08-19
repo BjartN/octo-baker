@@ -9,3 +9,5 @@ $awsRegion = 'eu-west-2'
 $awsExistingSecurityGroup = 'some-existing-security-group'
 $octopusApiKey = "API-******************" 
 $octopusServerUrl = "https://******.octopus.app" 
+$ec2InstanceType = "t2.micro"
+$octopusTenant = "Tenant to register with tentacle"

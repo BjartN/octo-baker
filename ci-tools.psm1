@@ -11,13 +11,15 @@ Function Get-FromVariableOrFile($variable, $file) {
     }
 }
 
-Function Format-UserData($ec2UserData, $octopusApiKey, $octopusServerUrl, $ec2InstanceName) {
+Function Format-UserData($ec2UserData, $octopusApiKey, $octopusServerUrl, $ec2InstanceName, $octopusTenant) {
     # .SYNOPSIS
     # Replace content in user data with the correct variables and encode
 
     $ec2UserData = $ec2UserData -replace "{OCTOPUS_API_KEY}", $octopusApiKey
     $ec2UserData = $ec2UserData -replace "{OCTOPUS_SERVER_URL}", $octopusServerUrl
     $ec2UserData = $ec2UserData -replace "{TENTACLE_NAME}", $ec2InstanceName
+    $ec2UserData = $ec2UserData -replace "{OCTOPUS_TENANT}", $octopusTenant
+
     $userData = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($ec2UserData))
 
     return $userData
@@ -59,7 +61,7 @@ Function New-Ec2InstanceWithNameTag(
         -ProfileName $awsProfile `
         -ImageId $awsAmi `
         -SecurityGroupId $awsExistingSecurityGroup `
-        -InstanceType t2.micro `
+        -InstanceType $ec2InstanceType `
         -KeyName $keyName `
         -UserData $userData
     Write-Host "`t$($instance.RunningInstance.instanceid)"

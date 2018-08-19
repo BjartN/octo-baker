@@ -28,7 +28,7 @@ Write-Host "`tRegion: $($awsRegion)"
 
 Write-Host "Reading and encoding user data"
 $ec2UserData = Get-FromVariableOrFile $ec2UserData $userDataFile
-$userData = Format-UserData $ec2UserData $octopusApiKey $octopusServerUrl $ec2InstanceName
+$userData = Format-UserData $ec2UserData $octopusApiKey $octopusServerUrl $ec2InstanceName $octopusTenant
 
 Write-Host "Setting AWS Credentials"
 Set-AWSCredential -AccessKey $awsAccessKey -SecretKey $awsSecretKey -StoreAs $awsProfile
