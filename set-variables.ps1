@@ -1,6 +1,6 @@
 # Make sure the ami you specify exsists in the region
 # you specifiy
-
+$isOctopus = "false"
 $ec2InstanceName = "name-of-new-instance"
 $awsAccessKey = "your-aws-access-key";
 $awsSecretKey = "your-aws-secret-key"

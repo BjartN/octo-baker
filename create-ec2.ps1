@@ -1,22 +1,9 @@
 Import-Module ./ci-tools
+#This script assumes variables have been set
 
-#Before starting 
-#   1) Start powershell as Adminstrator
-#   2) Set-ExecutionPolicy RemoteSigned
-#   3) Install-Module -Name AwsPowerShell
-#   4) You can find your AWS credentials under the IAM User in the AWS Console
-$isOctopus = ![string]::IsNullOrEmpty($ec2InstanceName) 
-
-$variablesFile = "./set-variables-secret.ps1"
-if (Test-Path $variablesFile) {
-    . $variablesFile
-}
-
-$keyName = $ec2InstanceName
-$keyFolder = "c:\keys\"
-$fullKeyPath = "$($keyFolder)$($keyName).pem"
+$isOctopus = $isOctopus -eq "true"
 $awsProfile = "MyProfile"
-$userDataFile = "$(Get-Location)\install-tentacle.ps1"
+$userDataFile = "$(Get-Location)\user-data.ps1"
 
 Write-Host "Variables are"
 Write-Host "`tInstance Name: $($ec2InstanceName)"
@@ -39,6 +26,9 @@ if ($isOctopus) {
     Set-KeyPairOctopus $awsRegion $awsProfile $keyName
 }
 else {
+    $keyName = $ec2InstanceName
+    $keyFolder = "c:\keys\"
+    $fullKeyPath = "$($keyFolder)$($keyName).pem"
     Set-KeyPairFileSystem $awsRegion $awsProfile $keyName $fullKeyPath
 }
 
@@ -52,10 +42,6 @@ $instanceId = New-Ec2InstanceWithNameTag `
     $userData `
     $ec2InstanceName
 
-if ($isOctopus) {
-    Write-Host "Setting output variable Ec2InstanceId=$($instanceId)"
-    Set-OctopusVariable -name "Ec2InstanceId" -value $instanceId
-}
-
+Write-Host "Created instance $($instanceId)"
 Write-Host "Done. UserData log file can be found in the created instance at c:\ProgramData\Amazon\EC2-Windows\Launch\Log"
 
